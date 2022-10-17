@@ -35,6 +35,7 @@ function generateGridEasy(rows, cols, grid) {
 
 }
 
+
 function generateGridRegular(rows, cols, grid) {
 
     for (let i = 0; i < (rows * cols); i++) {
@@ -75,7 +76,7 @@ gridButton.addEventListener("click", function () {
 
         generateGridEasy(tenRow, tenCol, gridElement);
 
-        const everyCell = document.querySelectorAll(".cell");
+        const everyCell = document.querySelectorAll(".cell_10");
 
         function clickableCell(nodeList) {
 
@@ -98,7 +99,7 @@ gridButton.addEventListener("click", function () {
 
         generateGridRegular(nineRow, nineCol, gridElement);
 
-        const everyCell = document.querySelectorAll(".cell");
+        const everyCell = document.querySelectorAll(".cell_9");
 
         function clickableCell(nodeList) {
 
@@ -121,7 +122,7 @@ gridButton.addEventListener("click", function () {
 
         generateGridHard(sevenRow, sevenCol, gridElement);
 
-        const everyCell = document.querySelectorAll(".cell");
+        const everyCell = document.querySelectorAll(".cell_7");
 
         function clickableCell(nodeList) {
 
