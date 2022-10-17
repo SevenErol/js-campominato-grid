@@ -72,8 +72,14 @@ let hardRule = true;
 
 gridButton.addEventListener("click", function () {
 
+
     if (levelsElement.value === "easy" && easyRule === true) {
 
+        while (gridElement.firstChild){
+
+            gridElement.removeChild(gridElement.firstChild);
+
+        }
         easyRule = false;
 
         regularRule = true;
@@ -103,6 +109,12 @@ gridButton.addEventListener("click", function () {
 
     } else if (levelsElement.value === "regular" && regularRule === true) {
 
+        while (gridElement.firstChild){
+
+            gridElement.removeChild(gridElement.firstChild);
+
+        }
+
         regularRule = false;
 
         easyRule = true;
@@ -131,6 +143,12 @@ gridButton.addEventListener("click", function () {
         clickableCell(everyCell);
 
     } else if (levelsElement.value === "hard" && hardRule === true) {
+
+        while (gridElement.firstChild){
+
+            gridElement.removeChild(gridElement.firstChild);
+            
+        }
 
         hardRule = false;
 
@@ -164,5 +182,10 @@ gridButton.addEventListener("click", function () {
 
 
 });
+
+function removeClass () {
+
+
+}
 
 
