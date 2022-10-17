@@ -15,7 +15,11 @@ function generateGrid (rows, cols, grid) {
 
         singleCell.classList.add("cell");
 
-        grid.appendChild (singleCell);
+        grid.appendChild(singleCell);
+
+        const thisNumber = i + 1;
+
+        singleCell.innerHTML = thisNumber;
     }
 
 }
@@ -23,5 +27,5 @@ function generateGrid (rows, cols, grid) {
 gridButton.addEventListener("click", function() {
 
     generateGrid (tenRow, tenCol, gridElement);
-    
+
 });
