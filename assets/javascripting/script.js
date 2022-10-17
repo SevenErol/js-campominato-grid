@@ -64,6 +64,22 @@ function generateGrid(rows, cols, grid) {
 }
 
 
+function clickableCell(nodeList) {
+
+    for (let i = 0; i < nodeList.length; i++) {
+
+        const thisCell = nodeList[i];
+
+        thisCell.addEventListener("click", function () {
+
+            thisCell.classList.toggle("aqua");
+
+            console.log(this);
+        })
+    }
+}
+
+
 let easyRule = true;
 
 let regularRule = true;
@@ -90,21 +106,6 @@ gridButton.addEventListener("click", function () {
 
         const everyCell = document.querySelectorAll(".cell_10");
 
-        function clickableCell(nodeList) {
-
-            for (let i = 0; i < nodeList.length; i++) {
-
-                const thisCell = nodeList[i];
-
-                thisCell.addEventListener("click", function () {
-
-                    thisCell.classList.toggle("aqua");
-
-                    console.log(this);
-                })
-            }
-        }
-
         clickableCell(everyCell);
 
     } else if (levelsElement.value === "regular" && regularRule === true) {
@@ -125,21 +126,6 @@ gridButton.addEventListener("click", function () {
 
         const everyCell = document.querySelectorAll(".cell_9");
 
-        function clickableCell(nodeList) {
-
-            for (let i = 0; i < nodeList.length; i++) {
-
-                const thisCell = nodeList[i];
-
-                thisCell.addEventListener("click", function () {
-
-                    thisCell.classList.toggle("aqua");
-
-                    console.log(this);
-                })
-            }
-        }
-
         clickableCell(everyCell);
 
     } else if (levelsElement.value === "hard" && hardRule === true) {
@@ -147,7 +133,7 @@ gridButton.addEventListener("click", function () {
         while (gridElement.firstChild){
 
             gridElement.removeChild(gridElement.firstChild);
-            
+
         }
 
         hardRule = false;
@@ -160,21 +146,6 @@ gridButton.addEventListener("click", function () {
 
         const everyCell = document.querySelectorAll(".cell_7");
 
-        function clickableCell(nodeList) {
-
-            for (let i = 0; i < nodeList.length; i++) {
-
-                const thisCell = nodeList[i];
-
-                thisCell.addEventListener("click", function () {
-
-                    thisCell.classList.toggle("aqua");
-
-                    console.log(this);
-                })
-            }
-        }
-
         clickableCell(everyCell);
 
     }
@@ -182,10 +153,4 @@ gridButton.addEventListener("click", function () {
 
 
 });
-
-function removeClass () {
-
-
-}
-
 
