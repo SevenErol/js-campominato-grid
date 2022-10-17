@@ -7,13 +7,58 @@ const tenRow = 10;
 
 const tenCol = 10;
 
-function generateGrid(rows, cols, grid) {
+const nineRow = 9;
+
+const nineCol = 9;
+
+const sevenRow = 7;
+
+const sevenCol = 7;
+
+const levelsElement = document.getElementById("difficulties");
+
+
+function generateGridEasy(rows, cols, grid) {
 
     for (let i = 0; i < (rows * cols); i++) {
 
         const singleCell = document.createElement("div");
 
-        singleCell.classList.add("cell");
+        singleCell.classList.add("cell_10");
+
+        grid.appendChild(singleCell);
+
+        const thisNumber = i + 1;
+
+        singleCell.innerHTML = thisNumber;
+    }
+
+}
+
+function generateGridRegular(rows, cols, grid) {
+
+    for (let i = 0; i < (rows * cols); i++) {
+
+        const singleCell = document.createElement("div");
+
+        singleCell.classList.add("cell_9");
+
+        grid.appendChild(singleCell);
+
+        const thisNumber = i + 1;
+
+        singleCell.innerHTML = thisNumber;
+    }
+
+}
+
+function generateGridHard(rows, cols, grid) {
+
+    for (let i = 0; i < (rows * cols); i++) {
+
+        const singleCell = document.createElement("div");
+
+        singleCell.classList.add("cell_7");
 
         grid.appendChild(singleCell);
 
@@ -26,26 +71,78 @@ function generateGrid(rows, cols, grid) {
 
 gridButton.addEventListener("click", function () {
 
-    generateGrid(tenRow, tenCol, gridElement);
+    if (levelsElement.value === "easy") {
 
-    const everyCell = document.querySelectorAll(".cell");
+        generateGridEasy(tenRow, tenCol, gridElement);
 
-    function clickableCell (nodeList) {
+        const everyCell = document.querySelectorAll(".cell");
 
-        for( let i = 0; i < nodeList.length; i++) {
+        function clickableCell(nodeList) {
 
-            const thisCell = nodeList[i];
-            
-            thisCell.addEventListener("click", function () {
+            for (let i = 0; i < nodeList.length; i++) {
 
-                thisCell.classList.toggle("aqua");
+                const thisCell = nodeList[i];
 
-                console.log(this);
-            })
+                thisCell.addEventListener("click", function () {
+
+                    thisCell.classList.toggle("aqua");
+
+                    console.log(this);
+                })
+            }
         }
+
+        clickableCell(everyCell);
+
+    } else if (levelsElement.value === "regular") {
+
+        generateGridRegular(nineRow, nineCol, gridElement);
+
+        const everyCell = document.querySelectorAll(".cell");
+
+        function clickableCell(nodeList) {
+
+            for (let i = 0; i < nodeList.length; i++) {
+
+                const thisCell = nodeList[i];
+
+                thisCell.addEventListener("click", function () {
+
+                    thisCell.classList.toggle("aqua");
+
+                    console.log(this);
+                })
+            }
+        }
+
+        clickableCell(everyCell);
+
+    } else if (levelsElement.value === "hard") {
+
+        generateGridHard(sevenRow, sevenCol, gridElement);
+
+        const everyCell = document.querySelectorAll(".cell");
+
+        function clickableCell(nodeList) {
+
+            for (let i = 0; i < nodeList.length; i++) {
+
+                const thisCell = nodeList[i];
+
+                thisCell.addEventListener("click", function () {
+
+                    thisCell.classList.toggle("aqua");
+
+                    console.log(this);
+                })
+            }
+        }
+
+        clickableCell(everyCell);
+
     }
 
-    clickableCell(everyCell);
+
 
 });
 

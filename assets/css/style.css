@@ -11,14 +11,39 @@
     padding: 3rem;
 }
 
+button {
+
+    margin-right: 2rem;
+}
+
 .game_grid {
     display: flex;
     flex-wrap: wrap;
     margin-top: 3rem;
 }
 
-.cell {
+.cell_10 {
     width: calc(100% / 10);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.cell_9 {
+    width: calc(100% / 9);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.cell_7 {
+    width: calc(100% / 7);
     aspect-ratio: 1 / 1;
     display: flex;
     flex-wrap: wrap;
