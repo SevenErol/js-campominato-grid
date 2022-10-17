@@ -7,7 +7,7 @@ const tenRow = 10;
 
 const tenCol = 10;
 
-function generateGrid (rows, cols, grid) {
+function generateGrid(rows, cols, grid) {
 
     for (let i = 0; i < (rows * cols); i++) {
 
@@ -24,8 +24,29 @@ function generateGrid (rows, cols, grid) {
 
 }
 
-gridButton.addEventListener("click", function() {
+gridButton.addEventListener("click", function () {
 
-    generateGrid (tenRow, tenCol, gridElement);
+    generateGrid(tenRow, tenCol, gridElement);
+
+    const everyCell = document.querySelectorAll(".cell");
+
+    function clickableCell (nodeList) {
+
+        for( let i = 0; i < nodeList.length; i++) {
+
+            const thisCell = nodeList[i];
+            
+            thisCell.addEventListener("click", function () {
+
+                thisCell.classList.toggle("aqua");
+
+                console.log(this);
+            })
+        }
+    }
+
+    clickableCell(everyCell);
 
 });
+
+
