@@ -18,63 +18,69 @@ const sevenCol = 7;
 const levelsElement = document.getElementById("difficulties");
 
 
-function generateGridEasy(rows, cols, grid) {
+function generateGrid(rows, cols, grid) {
 
     for (let i = 0; i < (rows * cols); i++) {
 
         const singleCell = document.createElement("div");
 
-        singleCell.classList.add("cell_10");
+        if (rows === 10 && cols === 10) {
 
-        grid.appendChild(singleCell);
+            singleCell.classList.add("cell_10");
 
-        const thisNumber = i + 1;
+            grid.appendChild(singleCell);
 
-        singleCell.innerHTML = thisNumber;
+            const thisNumber = i + 1;
+
+            singleCell.innerHTML = thisNumber;
+
+        } else if (rows === 9 && cols === 9) {
+
+            singleCell.classList.add("cell_9");
+
+            grid.appendChild(singleCell);
+
+            const thisNumber = i + 1;
+
+            singleCell.innerHTML = thisNumber;
+
+        } else if (rows === 7 && cols === 7) {
+
+            singleCell.classList.add("cell_7");
+
+            grid.appendChild(singleCell);
+
+            const thisNumber = i + 1;
+
+            singleCell.innerHTML = thisNumber;
+
+        }
+
+
     }
+
+    return true;
 
 }
 
 
-function generateGridRegular(rows, cols, grid) {
+let easyRule = true;
 
-    for (let i = 0; i < (rows * cols); i++) {
+let regularRule = true;
 
-        const singleCell = document.createElement("div");
-
-        singleCell.classList.add("cell_9");
-
-        grid.appendChild(singleCell);
-
-        const thisNumber = i + 1;
-
-        singleCell.innerHTML = thisNumber;
-    }
-
-}
-
-function generateGridHard(rows, cols, grid) {
-
-    for (let i = 0; i < (rows * cols); i++) {
-
-        const singleCell = document.createElement("div");
-
-        singleCell.classList.add("cell_7");
-
-        grid.appendChild(singleCell);
-
-        const thisNumber = i + 1;
-
-        singleCell.innerHTML = thisNumber;
-    }
-
-}
+let hardRule = true;
 
 gridButton.addEventListener("click", function () {
 
-    if (levelsElement.value === "easy") {
+    if (levelsElement.value === "easy" && easyRule === true) {
 
-        generateGridEasy(tenRow, tenCol, gridElement);
+        easyRule = false;
+
+        regularRule = true;
+
+        hardRule = true;
+
+        generateGrid(tenRow, tenCol, gridElement);
 
         const everyCell = document.querySelectorAll(".cell_10");
 
@@ -95,9 +101,15 @@ gridButton.addEventListener("click", function () {
 
         clickableCell(everyCell);
 
-    } else if (levelsElement.value === "regular") {
+    } else if (levelsElement.value === "regular" && regularRule === true) {
 
-        generateGridRegular(nineRow, nineCol, gridElement);
+        regularRule = false;
+
+        easyRule = true;
+
+        hardRule = true;
+
+        generateGrid(nineRow, nineCol, gridElement);
 
         const everyCell = document.querySelectorAll(".cell_9");
 
@@ -118,9 +130,15 @@ gridButton.addEventListener("click", function () {
 
         clickableCell(everyCell);
 
-    } else if (levelsElement.value === "hard") {
+    } else if (levelsElement.value === "hard" && hardRule === true) {
 
-        generateGridHard(sevenRow, sevenCol, gridElement);
+        hardRule = false;
+
+        easyRule = true;
+
+        regularRule = true;
+
+        generateGrid(sevenRow, sevenCol, gridElement);
 
         const everyCell = document.querySelectorAll(".cell_7");
 
